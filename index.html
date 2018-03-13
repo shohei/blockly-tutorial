@@ -36,7 +36,8 @@
   <body>
 
     <p>
-    <button onclick="runCode()">Run JavaScript</button>
+    <!-- <button onclick="runCode()">Run JavaScript</button> -->
+    <button onclick="showCode()">Show Python code</button>
     </p>
 
     <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
@@ -57,18 +58,23 @@
       {media: './media',
         toolbox: document.getElementById('toolbox')});
 
-      function runCode(){
-        window.LoopTrap = 1000;
-        Blockly.JavaScript.INFINITE_LOOP_TRAP = 
-        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-        var code = Blockly.JavaScript.workspaceToCode(workspace);
-        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-        try {
-          eval(code);
-          } catch (e) {
-          alert(e);
-        }
+      function showCode(){
+        var code = Blockly.Python.workspaceToCode(workspace);
+        console.log(code);
       }
+
+      // function runCode(){
+        //   window.LoopTrap = 1000;
+        //   Blockly.JavaScript.INFINITE_LOOP_TRAP = 
+        //   'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        //   var code = Blockly.JavaScript.workspaceToCode(workspace);
+        //   Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        //   try {
+          //     eval(code);
+          //     } catch (e) {
+          //     alert(e);
+          //   }
+        // }
     </script>
 
   </body>

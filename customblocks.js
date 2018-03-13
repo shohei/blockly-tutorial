@@ -63,3 +63,17 @@ Blockly.JavaScript['lightswitch'] = function(block) {
   }
   return code;
 };
+
+Blockly.Python['lightswitch'] = function(block) {
+  var dropdown_lightcolor = block.getFieldValue('lightcolor');
+  var dropdown_switch = block.getFieldValue('switch');
+
+  if(dropdown_switch =="on"){
+    var code = 'changeColor("red")';
+  }
+  if(dropdown_switch=="off"){
+    var code = 'changeColor("white")';
+  }
+
+  return code;
+};
